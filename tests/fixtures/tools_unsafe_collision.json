@@ -1,0 +1,23 @@
+{
+  "attribution": "Baysöz Labs <baysozlabs@proton.me>",
+  "tools": [
+    {
+      "name": "get_status_copy",
+      "description": "Read a copy of the current service status.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "region": {
+            "type": "string",
+            "description": "Region to inspect."
+          }
+        },
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false
+      }
+    }
+  ]
+}

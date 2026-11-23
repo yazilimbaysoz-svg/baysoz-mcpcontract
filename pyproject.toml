@@ -1,0 +1,58 @@
+# SPDX-License-Identifier: MIT
+# Baysöz Labs <baysozlabs@proton.me> — deterministic MCP tool-contract gates.
+
+[build-system]
+requires = ["hatchling>=1.27,<3"]
+build-backend = "hatchling.build"
+
+[project]
+name = "baysoz-mcpcontract"
+version = "0.1.0"
+description = "Deterministic offline MCP tool-contract conformance, portability and drift gate with SARIF CI enforcement — Baysöz Labs <baysozlabs@proton.me>"
+readme = "README.md"
+requires-python = ">=3.13"
+license = { text = "MIT" }
+authors = [{ name = "Baysöz Labs", email = "baysozlabs@proton.me" }]
+maintainers = [{ name = "Baysöz Labs", email = "baysozlabs@proton.me" }]
+keywords = [
+    "mcp",
+    "model-context-protocol",
+    "json-schema",
+    "contract-testing",
+    "supply-chain",
+    "sarif",
+    "devops",
+    "ci",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Security",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3,<10"]
+
+[project.scripts]
+mcpcontract = "baysoz_mcpcontract.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/yazilimbaysoz-svg/baysoz-mcpcontract"
+Source = "https://github.com/yazilimbaysoz-svg/baysoz-mcpcontract"
+Issues = "https://github.com/yazilimbaysoz-svg/baysoz-mcpcontract/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/baysoz_mcpcontract"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py313"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101"]

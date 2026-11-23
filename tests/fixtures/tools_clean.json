@@ -1,0 +1,74 @@
+{
+  "attribution": "Baysöz Labs <baysozlabs@proton.me>",
+  "serverInfo": {
+    "name": "clean-reference-server"
+  },
+  "tools": [
+    {
+      "name": "get_status",
+      "description": "Return current service health without changing state.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "component": {
+            "type": "string",
+            "description": "Component name to inspect.",
+            "enum": ["api", "worker"]
+          }
+        },
+        "required": ["component"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "healthy": {
+            "type": "boolean",
+            "description": "Whether the component is healthy."
+          }
+        },
+        "required": ["healthy"],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "delete_cache",
+      "description": "Delete cached artifacts for one tenant.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tenant_id": {
+            "type": "string",
+            "description": "Tenant identifier whose cache is purged.",
+            "pattern": "^[a-z0-9-]{1,64}$"
+          }
+        },
+        "required": ["tenant_id"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "deleted_count": {
+            "type": "integer",
+            "description": "Number of cache entries removed."
+          }
+        },
+        "required": ["deleted_count"],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    }
+  ]
+}

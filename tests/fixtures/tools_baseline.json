@@ -1,0 +1,55 @@
+{
+  "attribution": "Baysöz Labs <baysozlabs@proton.me>",
+  "tools": [
+    {
+      "name": "get_status",
+      "description": "Return current service health without changing state.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "component": {
+            "type": "string",
+            "description": "Component name to inspect.",
+            "enum": ["api", "worker", "database"]
+          }
+        },
+        "required": ["component"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "healthy": {
+            "type": "boolean",
+            "description": "Whether the component is healthy."
+          }
+        },
+        "required": ["healthy"],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false
+      }
+    },
+    {
+      "name": "delete_cache",
+      "description": "Delete cached artifacts for one tenant.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tenant_id": {
+            "type": "string",
+            "description": "Tenant identifier whose cache is purged."
+          }
+        },
+        "required": ["tenant_id"],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true
+      }
+    }
+  ]
+}

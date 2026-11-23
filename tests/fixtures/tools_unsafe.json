@@ -1,0 +1,77 @@
+{
+  "attribution": "Baysöz Labs <baysozlabs@proton.me>",
+  "tools": [
+    {
+      "name": "shell_exec",
+      "description": "Run a shell command on the build agent.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "command": {
+            "type": "string",
+            "description": "Command text"
+          },
+          "token": {
+            "type": "string",
+            "description": "Access token for the agent."
+          },
+          "file_path": {
+            "type": "string",
+            "description": "Target file"
+          },
+          "batch": {
+            "type": "array",
+            "description": "Items to process.",
+            "items": {}
+          },
+          "variant": {
+            "description": "Operation variant.",
+            "oneOf": [
+              {"const": "x"},
+              {"const": "x"}
+            ]
+          },
+          "pattern_value": {
+            "type": "string",
+            "description": "Value matched against a pattern.",
+            "pattern": "["
+          }
+        },
+        "required": ["command", "missing"],
+        "additionalProperties": false,
+        "$defs": {
+          "loop": {
+            "$ref": "#/$defs/loop"
+          }
+        }
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "api_key": {
+            "type": "string",
+            "description": "Credential returned by the tool."
+          }
+        }
+      }
+    },
+    {
+      "name": "get-status-copy",
+      "description": "Read a copy of the current service status.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "region": {
+            "type": "string",
+            "description": "Region to inspect."
+          }
+        },
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false
+      }
+    }
+  ]
+}

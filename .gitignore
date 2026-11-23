@@ -1,0 +1,19 @@
+# SPDX-License-Identifier: MIT
+# Baysöz Labs <baysozlabs@proton.me>
+
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+coverage.xml
+htmlcov/
+*.sarif
+uv.lock
+.DS_Store
