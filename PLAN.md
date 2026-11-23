@@ -46,7 +46,8 @@ pinned to full commit SHAs to clear the supply-chain lint rule.
 - Operations juror: PASS — exit codes 0 (clean), 1 (policy failure), 0 (`--fail-on never`), 2 (bad profile).
 - Verdict: no stubs, no hallucinations, unanimous release approval.
 
-## Phase 5 — Publication (pending)
+## Phase 5 — Publication (complete — 2026-11-23)
 
-- Create the public repository under `yazilimbaysoz-svg` with description and topics.
-- Write the strictly valid showcase JSON result file without touching other showcase files.
+- Public repository: https://github.com/yazilimbaysoz-svg/baysoz-mcpcontract
+- Description and 11 topics published; initial commit pushed to `main`.
+- Strictly valid showcase result JSON written without touching other showcase files.
